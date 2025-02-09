@@ -1,4 +1,4 @@
--- https://github.com/LorekeeperZinnia/Dex
+
 
 --[[
 	New Dex
