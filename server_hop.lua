@@ -3,6 +3,7 @@ local AllIDs = {}
 local foundAnything = ""
 local actualHour = os.date("!*t").hour
 local Deleted = false
+local ID = ""
 local File = pcall(function()
     AllIDs = game:GetService('HttpService'):JSONDecode(readfile("NotSameServers.json"))
 end)
@@ -10,6 +11,11 @@ if not File then
     table.insert(AllIDs, actualHour)
     writefile("NotSameServers.json", game:GetService('HttpService'):JSONEncode(AllIDs))
 end
+game.Players.LocalPlayer.OnTeleport:Connect(function(state)
+    if state == Enum.TeleportState.Success then
+        writefile("hi.txt", ID)
+    end
+end)
 function TPReturner()
     local Site;
     if foundAnything == "" then
@@ -17,7 +23,7 @@ function TPReturner()
     else
         Site = game.HttpService:JSONDecode(game:HttpGet('https://games.roblox.com/v1/games/' .. PlaceID .. '/servers/Public?sortOrder=Asc&limit=100&cursor=' .. foundAnything))
     end
-    local ID = ""
+    ID = ""
     if Site.nextPageCursor and Site.nextPageCursor ~= "null" and Site.nextPageCursor ~= nil then
         foundAnything = Site.nextPageCursor
     end
@@ -48,7 +54,6 @@ function TPReturner()
                 pcall(function()
                     writefile("NotSameServers.json", game:GetService('HttpService'):JSONEncode(AllIDs))
                     wait()
-                    writefile("hi.txt", ID)
                     game:GetService("TeleportService"):TeleportToPlaceInstance(PlaceID, ID, game.Players.LocalPlayer)
                 end)
                 wait(4)
