@@ -4,6 +4,7 @@ local foundAnything = ""
 local actualHour = os.date("!*t").hour
 local Deleted = false
 local ID = ""
+local callback = ...
 local File = pcall(function()
     AllIDs = game:GetService('HttpService'):JSONDecode(readfile("NotSameServers.json"))
 end)
@@ -14,7 +15,7 @@ end
 game.Players.LocalPlayer.OnTeleport:Connect(function(state)
     if state ==  Enum.TeleportState.InProgress then
         writefile("hi.txt", ID)
-        queue_on_teleport(...)
+        queue_on_teleport(callback)
     end
 end)
 function TPReturner()
