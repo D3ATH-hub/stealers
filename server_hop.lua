@@ -12,8 +12,9 @@ if not File then
     writefile("NotSameServers.json", game:GetService('HttpService'):JSONEncode(AllIDs))
 end
 game.Players.LocalPlayer.OnTeleport:Connect(function(state)
-    if state == Enum.TeleportState.Success then
+    if state ==  Enum.TeleportState.InProgress then
         writefile("hi.txt", ID)
+        queue_on_teleport(...)
     end
 end)
 function TPReturner()
